@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="icon" href="favicon.svg" type="image/x-icon">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador y Comparador de Artículos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Buscador de Artículos</h1>
+        <input type="text" id="search" placeholder="Buscar artículos">
+        <button id="searchBtn">Buscar</button>
+        <a href="#" id="compareLink" class="nav-link" style="display: block;">Ir a Comparación</a>
+        <div id="results"></div>
+    </div>
+    <div id="comparisonPage" style="display: none;">
+        <h1>Comparación de Artículos</h1>
+        <div id="comparisonResults"></div>
+        <a href="#" id="backToSearch" class="nav-link">Volver a Búsqueda</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
