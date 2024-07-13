@@ -13,14 +13,23 @@
                 (event.ctrlKey && event.shiftKey && event.key === 'J') ||
                 (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
-               // alert('Esta acción está deshabilitada.');
+
+            }
+        });
+                // Deshabilitar Ctrl+U, Ctrl+Shift+I y Ctrl+Shift+J
+                document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey && event.shiftKey && event.key === 'i') ||
+                (event.ctrlKey && event.shiftKey && event.key === 'j') ||
+                (event.ctrlKey && event.key === 'u')) {
+                event.preventDefault();
+
             }
         });
 
         // Deshabilitar botón derecho del ratón
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
-           // alert('El botón derecho está deshabilitado.');
+
         });
     </script>
 </head>
