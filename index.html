@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<link rel="icon" href="favicon.svg" type="image/x-icon">
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador y Comparador de Artículos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <script>
+        // Deshabilitar Ctrl+U, Ctrl+Shift+I y Ctrl+Shift+J
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey && event.shiftKey && event.key === 'I') ||
+                (event.ctrlKey && event.shiftKey && event.key === 'J') ||
+                (event.ctrlKey && event.key === 'U')) {
+                event.preventDefault();
+                alert('Esta acción está deshabilitada.');
+            }
+        });
+
+        // Deshabilitar botón derecho del ratón
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert('El botón derecho está deshabilitado.');
+        });
+    </script>
 </head>
 <body>
     <div id="app">
