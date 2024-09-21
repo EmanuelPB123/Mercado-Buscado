@@ -1,51 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador y Comparador de Artículos</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <style>
+        /* Contenedor principal con flexbox */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Estilos para el buscador */
+        #app {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #search {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #searchBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* Iframe ajustado */
+        iframe {
+            width: 400px;
+            height: 500px;
+            border: none;
+            flex-shrink: 0;
+        }
+
+        /* Responsividad para tabletas y móviles */
+        @media (max-width: 1200px) {
+            iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #search {
+                width: 100%;
+            }
+
+            iframe {
+                width: 100%;
+                height: 350px;
+            }
+        }
+
+        /* Ajustes para pantallas más pequeñas */
+        @media (max-width: 480px) {
+            iframe {
+                height: 300px;
+            }
+
+            #searchBtn {
+                width: 100%;
+                padding: 15px;
+            }
+
+            #compareLink {
+                text-align: center;
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+
     <script>
-        // Deshabilitar Ctrl+U, Ctrl+Shift+I y Ctrl+Shift+J
-        document.addEventListener('keydown', function(event) {
-            if ((event.ctrlKey && event.shiftKey && event.key === 'I') ||
-                (event.ctrlKey && event.shiftKey && event.key === 'J') ||
-                (event.ctrlKey && event.key === 'U')) {
-                event.preventDefault();
+        // Deshabilitar combinaciones de teclas y botón derecho
+                 document.addEventListener('keydown', function (event) {
+                    if ((event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i')) ||
+                        (event.ctrlKey && event.shiftKey && (event.key === 'J' || event.key === 'j')) ||
+                        (event.ctrlKey && (event.key === 'U' || event.key === 'u'))) {
+                        event.preventDefault();
+                    }
+                }); 
 
-            }
-        });
-                // Deshabilitar Ctrl+U, Ctrl+Shift+I y Ctrl+Shift+J
-                document.addEventListener('keydown', function(event) {
-            if ((event.ctrlKey && event.shiftKey && event.key === 'i') ||
-                (event.ctrlKey && event.shiftKey && event.key === 'j') ||
-                (event.ctrlKey && event.key === 'u')) {
-                event.preventDefault();
+                 document.addEventListener('contextmenu', function (event) {
+                    event.preventDefault();
+                }); 
 
-            }
-        });
-
-        // Deshabilitar botón derecho del ratón
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-
-        });
     </script>
+    <script src="https://unpkg.com/react-stackai@latest/dist/vanilla/vanilla-stackai.js"
+        data-project-url="https://www.stack-ai.com/embed/a3f960ee-689e-400f-a4d0-0ea435d35f0e/e54bd8ce-a46d-4a19-91cd-249cbea771d7/66edcca1fa270516e1881220">
+        </script>
+
 </head>
+
 <body>
-    <div id="app">
-        <h1>Buscador de Artículos</h1>
-        <input type="text" id="search" placeholder="Buscar artículos">
-        <button id="searchBtn">Buscar</button>
-        <a href="#" id="compareLink" class="nav-link" style="display: block;">Ir a Comparación</a>
-        <div id="results"></div>
-    </div>
-    <div id="comparisonPage" style="display: none;">
-        <h1>Comparación de Artículos</h1>
-        <div id="comparisonResults"></div>
-        <a href="#" id="backToSearch" class="nav-link">Volver a Búsqueda</a>
+    <script src="https://unpkg.com/react-stackai@latest/dist/vanilla/vanilla-stackai.js"
+        data-project-url="https://www.stack-ai.com/embed/a3f960ee-689e-400f-a4d0-0ea435d35f0e/e54bd8ce-a46d-4a19-91cd-249cbea771d7/66edcca1fa270516e1881220">
+        </script>
+    <div class="container">
+        <div id="app">
+            <h1>Buscador de Artículos</h1>
+            <input type="text" id="search" placeholder="Buscar artículos">
+            <button id="searchBtn">Buscar</button>
+            <a href="#" id="compareLink" class="nav-link">Ir a Comparación</a>
+            <div id="results"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
